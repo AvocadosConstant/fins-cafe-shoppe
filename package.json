@@ -1,0 +1,24 @@
+{
+  "name": "fins-cafe-shoppe",
+  "version": "1.0.0",
+  "description": "Tim Hung's application for The Fin Exploration Company",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AvocadosConstant/fins-cafe-shoppe.git"
+  },
+  "author": "Tim Hung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AvocadosConstant/fins-cafe-shoppe/issues"
+  },
+  "homepage": "https://github.com/AvocadosConstant/fins-cafe-shoppe#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "jasmine": "^2.5.2",
+    "jasmine-node": "^1.14.5"
+  }
+}
