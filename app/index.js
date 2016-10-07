@@ -1,5 +1,5 @@
-var ARGS = process.argv.slice(2);
 var algos = require("./algos.js");
+var ARGS = process.argv.slice(2);
 
 try {
   var input = require(ARGS[0]);
