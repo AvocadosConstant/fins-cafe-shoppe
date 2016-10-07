@@ -2,6 +2,8 @@ var exports = module.exports = {};
 var menu = require("./menu.js");
 var MAX_TIME = 100;
 
+// Basic FIFO implementation of order allocation
+// Not optimized at all
 exports.fifo = function(input) {
   // Represents the two baristas
   // baristas[i] = the time barista[i] will be available
@@ -31,5 +33,10 @@ exports.fifo = function(input) {
     });
   });
 
+  return output;
+};
+
+// Tim's implementation of order allocation
+exports.tims = function(input) {
   return output;
 };
