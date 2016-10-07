@@ -18,9 +18,9 @@ exports.fifo = function(input) {
     baristas[chosenBarista] = startTime + menu[order.type].brew_time;
 
     output.push({
-      "order_id": order.order_id,
+      "barista_id": chosenBarista + 1,
       "start_time": startTime,
-      "barista_id": chosenBarista + 1
+      "order_id": order.order_id
     });
   });
 
