@@ -33,7 +33,7 @@ exports.profit = function(input, output) {
   });
 
   output.forEach(function(order) {
-    profit += menu[input[order.order_id].type].profit;
+    profit += menu[input[order.order_id - 1].type].profit;
   });
 
   var percentProfit = Math.floor(100 * profit / potentialProfit);
@@ -50,7 +50,7 @@ exports.waitTime = function(input, output) {
   var totalWaitTime = 0;
   
   output.forEach(function(order) {
-    totalWaitTime += order.start_time - input[order.order_id].order_time;
+    totalWaitTime += order.start_time - input[order.order_id - 1].order_time;
   });
 
   console.log("Average Wait Time:\t\t" + (totalWaitTime / output.length).toFixed(2) + "\n");

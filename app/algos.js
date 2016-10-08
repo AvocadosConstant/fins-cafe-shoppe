@@ -50,9 +50,9 @@ exports.tims = function(input) {
   });
 
   var time = 0;
-  while(input.length > 0) {
+  while(time <= 100 && (input.length > 0 || queuedOrders.size > 0)) {
     
-    //console.log("Time: " + time);
+    //console.log( "Time:\t" + time + "\n# orders left:\t" + input.length);
 
     while(input.length > 0 && input[0].order_time == time) {
       queuedOrders.add(input.shift());
@@ -67,7 +67,7 @@ exports.tims = function(input) {
         // Pop most valuable queued order
         var deployingOrder = queuedOrders.poll();
 
-        //console.log("Deploying Order #" + deployingOrder.order_id);
+        console.log("Deploying Order of a " + deployingOrder.type);
 
         // Update next time barista is available
         baristas[i] = time + menu[deployingOrder.type].brew_time;
