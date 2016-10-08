@@ -1,4 +1,6 @@
 var algos = require("./algos.js");
+var analytics = require("./analytics.js");
+
 var ARGS = process.argv.slice(2);
 
 try {
@@ -11,3 +13,5 @@ catch (err) {
 
 var output = algos.fifo(input);
 console.log(output);
+
+analytics.analyze(input, output);
