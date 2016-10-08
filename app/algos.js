@@ -45,12 +45,13 @@ exports.tims = function(input) {
   var baristas = [0, 0];
   var output = [];
 
+  // Initialize a max heap prioritizing orders with the greatest value
   var queuedOrders = new heap(function(a, b) {
     return menu[a.type].value < menu[a.type].value;
   });
 
   var time = 0;
-  while(time <= 100 && (input.length > 0 || queuedOrders.size > 0)) {
+  while(time <= MAX_TIME && (input.length > 0 || queuedOrders.size > 0)) {
     
     //console.log( "Time:\t" + time + "\n# orders left:\t" + input.length);
 
@@ -67,7 +68,7 @@ exports.tims = function(input) {
         // Pop most valuable queued order
         var deployingOrder = queuedOrders.poll();
 
-        console.log("Deploying Order of a " + deployingOrder.type);
+        //console.log("Deploying Order of a " + deployingOrder.type);
 
         // Update next time barista is available
         baristas[i] = time + menu[deployingOrder.type].brew_time;
