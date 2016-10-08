@@ -1,9 +1,11 @@
 var exports = module.exports = {};
 var menu = require("./menu.js");
 
-exports.analyze = function(input, output) {
+exports.analyze = function(input, output, description) {
+  var desc = description ? " for " + description : "";
+
   console.log("\n------------------------\n");
-  console.log("Analyzing results...\n");
+  console.log("Analyzing results" + desc + "...\n");
   exports.throughput(input, output);
   exports.profit(input, output);
   exports.waitTime(input, output);

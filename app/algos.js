@@ -1,5 +1,6 @@
 var exports = module.exports = {};
 var menu = require("./menu.js");
+var heap = require("fastpriorityqueue");
 var MAX_TIME = 100;
 
 // Basic FIFO implementation of order allocation
@@ -38,5 +39,47 @@ exports.fifo = function(input) {
 
 // Tim's implementation of order allocation
 exports.tims = function(input) {
+
+  // Represents the two baristas
+  // baristas[i] = the time barista[i] will be available
+  var baristas = [0, 0];
+  var output = [];
+
+  var queuedOrders = new heap(function(a, b) {
+    return menu[a.type].value < menu[a.type].value;
+  });
+
+  var time = 0;
+  while(input.length > 0) {
+    
+    //console.log("Time: " + time);
+
+    while(input.length > 0 && input[0].order_time == time) {
+      queuedOrders.add(input.shift());
+      //console.log("Queued up an order!");
+    }
+
+    for(var i = 0; i < baristas.length; i++) {
+
+      // Verify input are queued and check if barista is available
+      if(queuedOrders.size > 0 && baristas[i] <= time) {
+
+        // Pop most valuable queued order
+        var deployingOrder = queuedOrders.poll();
+
+        //console.log("Deploying Order #" + deployingOrder.order_id);
+
+        // Update next time barista is available
+        baristas[i] = time + menu[deployingOrder.type].brew_time;
+
+        output.push({
+          "barista_id": i + 1,
+          "start_time": time,
+          "order_id": deployingOrder.order_id
+        });
+      }
+    }
+    time++;
+  }
   return output;
 };
