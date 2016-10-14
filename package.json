@@ -4,6 +4,7 @@
   "description": "Tim Hung's application for The Fin Exploration Company",
   "main": "index.js",
   "scripts": {
+    "start": "node app/index.js testcases/input/input_original.json",
     "test": "./node_modules/.bin/jasmine-node spec"
   },
   "repository": {

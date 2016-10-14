@@ -52,7 +52,7 @@ exports.tims = function(input) {
 
   var time = 0;
   while(time <= MAX_TIME && (input.length > 0 || queuedOrders.size > 0)) {
-    
+
     //console.log( "Time:\t" + time + "\n# orders left:\t" + input.length);
 
     while(input.length > 0 && input[0].order_time == time) {
